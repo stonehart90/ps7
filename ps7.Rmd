@@ -1,0 +1,36 @@
+---
+title: "Ps7"
+author: "Stone Hart"
+date: "11/21/2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(janitor)
+library(fs)
+library(knitr)
+library(tidyverse)
+#throughout this problem set I will be using midterm 2 solutions code  as reference
+download.file(url = "https://goo.gl/ZRCBda",
+              
+              destfile = "master.zip",
+              
+              quiet = TRUE,
+              
+              mode = "wb")
+unzip("master.zip")
+
+ps7_data <- fs::dir_ls("2018-live-poll-results-master/data") %>% 
+  #load data 
+map_dfr(read_csv,.id = "source") 
+```
+```{r echo = FALSE}
+write_rds(ps7_data, "ps7_data")
+#write file 
+
+```
+
+
+
+```
